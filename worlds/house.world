@@ -13,7 +13,15 @@
             filename="gz-sim-scene-broadcaster-system"
             name="gz::sim::systems::SceneBroadcaster">
         </plugin>
-
+        <plugin
+          filename="gz-sim-sensors-system"
+          name="gz::sim::systems::Sensors">
+          <render_engine>ogre2</render_engine>
+        </plugin>
+        <plugin
+          filename="gz-sim-imu-system"
+          name="gz::sim::systems::Imu">
+        </plugin>
         <!-- To add realistic gravity, do: 0.0 0.0 -9.8, otherwise do 0.0 0.0 0.0 -->
         <gravity>0.0 0.0 -9.8</gravity>
 

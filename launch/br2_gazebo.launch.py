@@ -21,9 +21,12 @@ from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
     SetEnvironmentVariable,
+    IncludeLaunchDescription,
     ExecuteProcess,
     OpaqueFunction
 )
+from launch.conditions import IfCondition
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 
@@ -38,7 +41,7 @@ def start_gzserver(context, *args, **kwargs):
 
     # Command to start the gazebo server.
     gazebo_server_cmd_line = [
-        'gz', 'sim', world, '-r' , '-v', '4']
+        'gz', 'sim', world, '-r' , '-s']
     # Start the server under the gdb framework.
     debug = LaunchConfiguration('debug').perform(context)
     if debug == 'True':
@@ -47,10 +50,27 @@ def start_gzserver(context, *args, **kwargs):
             gazebo_server_cmd_line
         )
 
-    start_gazebo_server_cmd = ExecuteProcess(
-        cmd=gazebo_server_cmd_line, output='screen')
+    # start_gazebo_server_cmd = ExecuteProcess(
+    #     cmd=gazebo_server_cmd_line, output='screen')
 
-    return [start_gazebo_server_cmd]
+    start_gazebo_server_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('ros_gz_sim'), 'launch',
+                         'gz_sim.launch.py')),
+        launch_arguments={'gz_args': ['-r -s ', world]}.items()
+    )
+
+    start_gazebo_client_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('ros_gz_sim'),
+                         'launch',
+                         'gz_sim.launch.py')
+        ),
+        launch_arguments={'gz_args': ['-v4 -g ']}.items(),
+    )
+
+
+    return [start_gazebo_server_cmd, start_gazebo_client_cmd]
 
 
 def generate_launch_description():
