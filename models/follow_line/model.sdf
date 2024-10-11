@@ -30,7 +30,26 @@
           </mesh>
         </geometry>
       <meta> <layer> 1 </layer></meta>
-</visual>
+      </visual>
+    </link>
+
+    <link name="ground">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>100 100</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
     </link>
 
 	<static>1</static>
