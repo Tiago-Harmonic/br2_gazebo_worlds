@@ -66,7 +66,7 @@ def start_gzserver(context, *args, **kwargs):
                          'launch',
                          'gz_sim.launch.py')
         ),
-        launch_arguments={'gz_args': ['-v4 -g ']}.items(),
+        launch_arguments={'gz_args': [' -g ']}.items(),
     )
 
 
