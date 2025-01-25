@@ -198,6 +198,15 @@
             </include>
             <pose>8.702731 -1.032031 0 0 -0 -1.563499</pose>
 	</model>  
+	
+	<model name='TrashBin'>
+	<static>true</static>    
+	<include>
+	<uri>model://TrashBin</uri>
+	</include>
+	<pose>9 0 0 0 0 0</pose>
+	</model>
+	
     <model name='FoldingDoor_02_001'>
         <static>true</static>    
         <include>
