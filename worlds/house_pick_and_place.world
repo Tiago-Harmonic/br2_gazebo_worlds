@@ -37,6 +37,14 @@
             <origin_visual>false</origin_visual>
         </scene>
         
+        <model name='ARUco124'>
+	<static>true</static>    
+	<include>
+		<uri>model://aruco_tag_124</uri>
+	</include>
+	<pose>1.5 -5.5 2 -1.571733 0.000000 0.000000</pose>
+	</model>
+        
         <model name='WallB_01_001'>
             <static>true</static>    
             <include>
@@ -238,7 +246,6 @@
         <pose>9.285478 -5.021261 1.141805 0 -0 0</pose>
 	</model-->
 	
-
 
                 
         <!--model name='ShoeRack_01_001'>
