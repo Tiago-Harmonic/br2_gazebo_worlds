@@ -8,3 +8,5 @@ Available worlds:
 - `pick_and_place.world`: area made for multiple pick-and-place tasks:
     - **picking area**: ARUCo codes, color cans, hand-labelled cubes (for LeNet neuronal networks and MNIST dataset)
     - **placing area**: ARUCo codes, trash bins
+    - **side area**: shelf with 88x boxes labelled with ARUCo id 32, and 1x with id 31
+

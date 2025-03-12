@@ -147,6 +147,14 @@
     <pose>-2.5 5 0 0 0 0</pose>
     </model>
 
+    <model name='SideWallA_NonPickable_Shelf'>
+    <static>true</static>
+    <include>
+        <uri>model://shelf_aruco</uri>
+    </include>
+    <pose>0 4.5 0 0 0 0</pose>
+    </model>
+
     <model name='SideWallB'>
     <static>true</static>
     <include>
