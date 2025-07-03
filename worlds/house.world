@@ -341,7 +341,7 @@
             <include>
                 <uri>model://aws_robomaker_residential_Ball_01</uri>
             </include>
-            <pose>5.0 0.0 0.318684 0 -0 0</pose>
+            <pose>3.0 0.0 0.318684 0 -0 0</pose>
         </model>
 
 
